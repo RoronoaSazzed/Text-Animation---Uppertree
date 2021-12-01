@@ -1,0 +1,554 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Text Animation</title>
+
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      :root {
+        --hiAppearance: 1s;
+        --logoAppearance: calc(var(--hiAppearance) * 5.25);
+      }
+
+      .parentDiv {
+        min-height: 50vh;
+        display: grid;
+        place-items: center;
+        position: relative;
+      }
+
+      /* Intro Section Starts */
+
+      #introText circle {
+        stroke-dasharray: 3471.109375;
+        stroke-dashoffset: 3471.109375;
+      }
+
+      #hi-word,
+      #we-word,
+      #are-word {
+        transform-box: fill-box;
+        transform-origin: center;
+        opacity: 0;
+      }
+
+      #hi-word {
+        animation: slideDown var(--hiAppearance) ease-in-out forwards;
+      }
+
+      @keyframes slideDown {
+        0% {
+          transform: translateY(-100%);
+          opacity: 0;
+        }
+
+        100% {
+          transform: translateY(0%);
+          opacity: 1;
+        }
+      }
+
+      #we-word {
+        animation: slideRight var(--hiAppearance) ease-in-out
+          var(--hiAppearance) forwards;
+      }
+
+      @keyframes slideRight {
+        0% {
+          transform: translateX(-20%);
+          opacity: 0;
+        }
+
+        100% {
+          transform: translateX(0%);
+          opacity: 1;
+        }
+      }
+
+      #are-word {
+        animation: slideLeft var(--hiAppearance) ease-in-out var(--hiAppearance)
+          forwards;
+      }
+
+      @keyframes slideLeft {
+        0% {
+          transform: translateX(20%);
+          opacity: 0;
+        }
+
+        100% {
+          transform: translateX(0%);
+          opacity: 1;
+        }
+      }
+
+      #introText circle {
+        animation: circleAppear var(--hiAppearance) ease-in-out
+          calc(var(--hiAppearance) * 2) forwards;
+      }
+
+      @keyframes circleAppear {
+        100% {
+          stroke-dashoffset: 0px;
+        }
+      }
+
+      #introText {
+        animation: gone calc(var(--hiAppearance) / 5) ease-in-out
+          calc(var(--hiAppearance) * 5) forwards;
+      }
+
+      @keyframes gone {
+        100% {
+          opacity: 0;
+          pointer-events: none;
+        }
+      }
+
+      /* Logo Section Starts */
+
+      #logo {
+        position: absolute;
+        top: 0;
+        left: 0;
+        opacity: 0;
+        pointer-events: none;
+        animation: appearIn var(--hiAppearance) linear var(--logoAppearance)
+          forwards;
+      }
+
+      @keyframes appearIn {
+        100% {
+          opacity: 1;
+        }
+      }
+
+      #oneU {
+        stroke-dasharray: 765.1885375976562px;
+        stroke-dashoffset: 765.1885375976562px;
+        animation: goneTo var(--hiAppearance) linear
+          calc(var(--logoAppearance) + calc(var(--hiAppearance) / 2)) forwards;
+      }
+
+      #oneU path {
+        fill: transparent;
+        animation: fillIn calc(var(--hiAppearance) / 3) linear
+          calc(var(--logoAppearance) + calc(var(--hiAppearance) * 6)) forwards;
+      }
+
+      #twoU {
+        transform-box: fill-box;
+        transform-origin: center;
+        transform-style: preserve-3d;
+        stroke-dasharray: 671.5318603515625px;
+        stroke-dashoffset: 671.5318603515625px;
+        animation: goneTo var(--hiAppearance) linear
+            calc(var(--logoAppearance) + calc(var(--hiAppearance) * 1.5))
+            forwards,
+          rotation 1s ease-in-out
+            calc(var(--logoAppearance) + calc(var(--hiAppearance) * 7)) forwards;
+      }
+
+      @keyframes rotation {
+        100% {
+          transform: rotateY(calc(270deg * 10));
+        }
+      }
+
+      #twoU path {
+        fill: transparent;
+        animation: fillIn calc(var(--hiAppearance) / 3) linear
+          calc(var(--logoAppearance) + calc(var(--hiAppearance) * 6)) forwards;
+      }
+
+      #threeU {
+        stroke-dasharray: 822.3121337890625px;
+        stroke-dashoffset: 822.3121337890625px;
+        animation: goneTo var(--hiAppearance) linear
+          calc(var(--logoAppearance) + calc(var(--hiAppearance) * 2)) forwards;
+      }
+
+      #threeU path {
+        fill: transparent;
+        animation: fillIn calc(var(--hiAppearance) / 3) linear
+          calc(var(--logoAppearance) + calc(var(--hiAppearance) * 6)) forwards;
+      }
+
+      #fourU {
+        stroke-dasharray: 822.3121337890625px;
+        stroke-dashoffset: 822.3121337890625px;
+        animation: goneTo var(--hiAppearance) linear
+          calc(var(--logoAppearance) + calc(var(--hiAppearance) * 2.5)) forwards;
+      }
+
+      #fourU path {
+        fill: transparent;
+        animation: fillIn calc(var(--hiAppearance) / 3) linear
+          calc(var(--logoAppearance) + calc(var(--hiAppearance) * 6)) forwards;
+      }
+
+      #fiveU {
+        stroke-dasharray: 797.8746337890625px;
+        stroke-dashoffset: 797.8746337890625px;
+        animation: goneTo var(--hiAppearance) linear
+          calc(var(--logoAppearance) + calc(var(--hiAppearance) * 3)) forwards;
+      }
+
+      #fiveU path {
+        fill: transparent;
+        animation: fillIn calc(var(--hiAppearance) / 3) linear
+          calc(var(--logoAppearance) + calc(var(--hiAppearance) * 6)) forwards;
+      }
+
+      #sixU {
+        stroke-dasharray: 797.9088745117188;
+        stroke-dashoffset: 797.9088745117188;
+        animation: goneTo var(--hiAppearance) linear
+          calc(var(--logoAppearance) + calc(var(--hiAppearance) * 3.5)) forwards;
+      }
+
+      #sixU path {
+        fill: transparent;
+        animation: fillIn calc(var(--hiAppearance) / 3) linear
+          calc(var(--logoAppearance) + calc(var(--hiAppearance) * 6)) forwards;
+      }
+
+      #sevenU {
+        stroke-dasharray: 822.152099609375px;
+        stroke-dashoffset: 822.152099609375px;
+        animation: goneTo var(--hiAppearance) linear
+          calc(var(--logoAppearance) + calc(var(--hiAppearance) * 4)) forwards;
+      }
+
+      #sevenU path {
+        fill: transparent;
+        animation: fillIn calc(var(--hiAppearance) / 3) linear
+          calc(var(--logoAppearance) + calc(var(--hiAppearance) * 6)) forwards;
+      }
+
+      #eightU {
+        transform-box: fill-box;
+        transform-origin: center;
+        transform-style: preserve-3d;
+        stroke-dasharray: 822.152099609375px;
+        stroke-dashoffset: 822.152099609375px;
+        animation: goneTo var(--hiAppearance) linear
+            calc(var(--logoAppearance) + calc(var(--hiAppearance) * 4.5))
+            forwards,
+          rotation 1s ease-in-out
+            calc(var(--logoAppearance) + calc(var(--hiAppearance) * 7)) forwards;
+      }
+
+      #eightU path {
+        fill: transparent;
+        animation: fillIn calc(var(--hiAppearance) / 3) linear
+          calc(var(--logoAppearance) + calc(var(--hiAppearance) * 6)) forwards;
+      }
+
+      #nineU {
+        stroke-dasharray: 865.2759399414062px;
+        stroke-dashoffset: 865.2759399414062px;
+        animation: goneTo var(--hiAppearance) linear
+          calc(var(--logoAppearance) + calc(var(--hiAppearance) * 5)) forwards;
+      }
+
+      #nineU path {
+        fill: transparent;
+        animation: fillIn calc(var(--hiAppearance) / 3) linear
+          calc(var(--logoAppearance) + calc(var(--hiAppearance) * 6)) forwards;
+      }
+
+      @keyframes goneTo {
+        100% {
+          stroke-dashoffset: 0px;
+        }
+      }
+
+      @keyframes fillIn {
+        100% {
+          fill: #010101;
+        }
+      }
+
+      #left-arw,
+      #right-arw {
+        transform-box: fill-box;
+        transform-origin: center;
+        opacity: 0;
+      }
+
+      #left-arw {
+        animation: hitFromAbove 0.75s
+          calc(var(--logoAppearance) + calc(var(--hiAppearance) * 6.9)) forwards;
+      }
+
+      @keyframes hitFromAbove {
+        0% {
+          transform: translateY(-100%);
+          opacity: 0;
+        }
+
+        50% {
+          opacity: 1;
+        }
+
+        100% {
+          transform: translateY(100%);
+          opacity: 0;
+        }
+      }
+
+      #right-arw {
+        animation: hitFromBelow 0.75s
+          calc(var(--logoAppearance) + calc(var(--hiAppearance) * 6.9)) forwards;
+      }
+
+      @keyframes hitFromBelow {
+        0% {
+          transform: translateY(100%);
+          opacity: 0;
+        }
+
+        50% {
+          opacity: 1;
+        }
+
+        100% {
+          transform: translateY(-100%);
+          opacity: 0;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="parentDiv">
+      <svg
+        id="introText"
+        width="100%"
+        min-height="0"
+        viewBox="0 0 1920 780"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <g id="main frame">
+          <g id="circleBG">
+            <circle
+              id="Ellipse 1"
+              cx="960"
+              cy="390"
+              r="297.5"
+              stroke="url(#paint0_linear_2_247)"
+              stroke-width="5"
+            />
+          </g>
+          <g id="hi-word">
+            <g id="h-hi">
+              <path
+                id="Vector"
+                d="M957.064 368.725H939.029V337.31H912.315V368.725H894.18V293.48H912.315V323.348H939.029V293.48H957.064V368.725Z"
+                fill="#00AA95"
+              />
+            </g>
+            <g id="i-hi">
+              <path
+                id="Vector_2"
+                d="M993.149 368.725H975.067V293.48H993.149V368.725Z"
+                fill="#00AA95"
+              />
+            </g>
+            <g id="exclamatory">
+              <path
+                id="Vector_3"
+                d="M1010.69 360.941C1010.66 359.755 1010.89 358.577 1011.37 357.492C1011.84 356.406 1012.56 355.441 1013.45 354.664C1015.4 353.077 1017.84 352.21 1020.35 352.21C1022.86 352.21 1025.3 353.077 1027.24 354.664C1028.12 355.461 1028.81 356.432 1029.29 357.514C1029.77 358.595 1030.02 359.765 1030.02 360.947C1030.02 362.13 1029.77 363.299 1029.29 364.381C1028.81 365.463 1028.12 366.434 1027.24 367.231C1025.3 368.821 1022.86 369.69 1020.35 369.69C1017.84 369.69 1015.4 368.821 1013.45 367.231C1012.55 366.454 1011.84 365.486 1011.36 364.398C1010.88 363.31 1010.65 362.129 1010.69 360.941V360.941ZM1027.53 344.922H1013.43L1011.2 293.48H1029.72L1027.53 344.922Z"
+                fill="#00AA95"
+              />
+            </g>
+          </g>
+          <g id="we-word">
+            <g id="w-we">
+              <path
+                id="Vector_4"
+                d="M809.576 459.044L818.207 411.868H836.184L820.218 487.1H801.415L791.335 444.209L781.468 487.1H762.711L746.692 411.868H764.728L773.326 459.044L783.69 411.868H799.087L809.576 459.044Z"
+                fill="#00AA95"
+              />
+            </g>
+            <g id="e-we">
+              <path
+                id="Vector_5"
+                d="M895.212 455.181H866.693V473.157H900.384V487.113H848.558V411.867H900.483V425.869H866.693V441.742H895.212V455.181Z"
+                fill="#00AA95"
+              />
+            </g>
+          </g>
+          <g id="are-word">
+            <g id="a-are">
+              <path
+                id="Vector_6"
+                d="M1045.27 473.052H1020.41L1016.07 487.106H996.694L1024.29 411.868H1041.35L1069.13 487.1H1049.66L1045.27 473.052ZM1024.76 459.051H1040.94L1032.83 432.953L1024.76 459.051Z"
+                fill="#00AA95"
+              />
+            </g>
+            <g id="r-are">
+              <path
+                id="Vector_7"
+                d="M1107.86 460.492H1098.04V487.106H1079.9V411.867H1109.51C1118.44 411.867 1125.41 413.851 1130.44 417.82C1135.47 421.788 1137.98 427.381 1137.99 434.599C1137.99 439.824 1136.92 444.158 1134.8 447.602C1132.68 451.045 1129.38 453.834 1124.88 455.968L1140.56 486.325V487.106H1121.14L1107.86 460.492ZM1098.04 446.543H1109.51C1112.96 446.543 1115.55 445.637 1117.29 443.825C1119.03 442.013 1119.9 439.482 1119.9 436.232C1119.9 432.992 1119.02 430.439 1117.25 428.594C1115.49 426.748 1112.91 425.822 1109.5 425.822H1098.04V446.543Z"
+                fill="#00AA95"
+              />
+            </g>
+            <g id="e-are">
+              <path
+                id="Vector_8"
+                d="M1200.89 455.174H1172.36V473.151H1206.03V487.106H1154.23V411.867H1206.15V425.869H1172.36V441.742H1200.89V455.174Z"
+                fill="#00AA95"
+              />
+            </g>
+          </g>
+        </g>
+        <defs>
+          <linearGradient
+            id="paint0_linear_2_247"
+            x1="960"
+            y1="90"
+            x2="960"
+            y2="690"
+            gradientUnits="userSpaceOnUse"
+          >
+            <stop stop-color="#00AA95" />
+            <stop offset="1" stop-color="#010101" stop-opacity="0" />
+          </linearGradient>
+        </defs>
+      </svg>
+
+      <svg
+        id="logo"
+        width="100%"
+        min-height="0"
+        viewBox="0 0 1920 780"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <g id="uppertree">
+          <g id="uppertree-word">
+            <g id="oneU">
+              <path
+                id="Vector"
+                d="M221 313.12H219.5V314.62V404.916C219.5 423.838 225.026 440.287 236.905 452.002C248.785 463.718 266.815 470.5 291.422 470.5C316.025 470.5 334.01 463.773 345.843 452.054C357.676 440.335 363.149 423.83 363.149 404.7V314.62V313.12H361.649H321.88H320.38V314.62V403.472C320.38 412.207 318.109 419.523 313.462 424.641C308.837 429.735 301.668 432.861 291.422 432.861C281.175 432.861 273.948 429.734 269.268 424.635C264.568 419.514 262.248 412.199 262.248 403.472V314.62V313.12H260.748H221Z"
+                fill="#010101"
+                stroke="#010101"
+                stroke-width="3"
+              />
+            </g>
+            <g id="twoU">
+              <path
+                id="Vector_2"
+                d="M405.989 467.676H404.489V466.176V314.62V313.12H405.989H481.886C499.282 313.12 512.863 319.044 522.094 328.571C531.314 338.086 536.089 351.086 536.089 365.06C536.089 379.036 531.312 391.875 522.085 401.225C512.848 410.584 499.268 416.331 481.886 416.331H446.569V466.176V467.676H445.069H405.989ZM476.648 380.179C481.563 380.179 485.734 378.631 488.659 375.991C491.57 373.363 493.341 369.572 493.341 364.866V364.844C493.341 360.007 491.56 356.098 488.644 353.39C485.717 350.672 481.549 349.078 476.648 349.078H446.569V380.179H476.648Z"
+                fill="#010101"
+                stroke="#010101"
+                stroke-width="3"
+              />
+            </g>
+            <g id="threeU">
+              <path
+                id="Vector_3"
+                d="M586.192 313.12H584.692V314.62V466.176V467.676H586.192H625.272H626.772V466.176V416.331H662.089C679.478 416.331 693.064 410.64 702.305 401.307C711.538 391.982 716.313 379.142 716.313 365.06C716.313 350.98 711.54 337.978 702.314 328.488C693.078 318.987 679.491 313.12 662.089 313.12H586.192ZM626.772 380.158V349.078H656.872C666.588 349.078 673.544 355.543 673.544 364.844C673.544 369.552 671.777 373.343 668.872 375.97C665.953 378.609 661.787 380.158 656.872 380.158H626.772Z"
+                fill="#010101"
+                stroke="#010101"
+                stroke-width="3"
+              />
+            </g>
+            <g id="fourU">
+              <path
+                id="Vector_4"
+                d="M755.057 313.12H753.557V314.62V466.176V467.676H755.057H866.176H867.676V466.176V433.24V431.74H866.176H795.638V407.472H864.581H866.081V405.972V372.798V371.298H864.581H795.638V349.078H866.176H867.676V347.578V314.62V313.12H866.176H755.057Z"
+                fill="#010101"
+                stroke="#010101"
+                stroke-width="3"
+              />
+            </g>
+            <g id="fiveU">
+              <path
+                id="Vector_5"
+                d="M1017.9 411.309C1032.02 405.642 1047.43 391.146 1047.43 365.06C1047.43 350.632 1042.53 337.626 1033.24 328.221C1023.94 318.809 1010.36 313.12 993.202 313.12H917.327H915.827V314.62V466.176V467.676H917.327H956.407H957.907V466.176V416.331H975.458L1000.5 466.843L1000.92 467.676H1001.85H1046.66H1049.21L1047.97 465.448L1017.9 411.309ZM957.907 380.158V349.078H987.296C996.929 349.078 1004.66 355.187 1004.66 364.607C1004.66 374.029 996.926 380.158 987.296 380.158H957.907Z"
+                fill="#010101"
+                stroke="#010101"
+                stroke-width="3"
+              />
+            </g>
+            <g id="sixU">
+              <path
+                id="Vector_6"
+                d="M1083.55 348.656V350.156H1085.05H1126.04V466.133V467.633H1127.54H1166.62H1168.12V466.133V350.156H1208.89H1210.39V348.656V314.62V313.12H1208.89H1085.05H1083.55V314.62V348.656Z"
+                fill="#010101"
+                stroke="#010101"
+                stroke-width="3"
+              />
+            </g>
+            <g id="sevenU">
+              <path
+                id="Vector_7"
+                d="M1356.52 411.309C1370.64 405.642 1386.04 391.146 1386.04 365.06C1386.04 350.633 1381.15 337.626 1371.87 328.221C1362.57 318.809 1348.99 313.12 1331.84 313.12H1255.94H1254.44V314.62V466.176V467.676H1255.94H1295.02H1296.52V466.176V416.331H1314.09L1339.12 466.842L1339.53 467.676H1340.46H1385.27H1387.82L1386.58 465.448L1356.52 411.309ZM1296.52 380.158V349.078H1325.93C1335.54 349.078 1343.29 355.188 1343.29 364.607C1343.29 374.028 1335.54 380.158 1325.93 380.158H1296.52Z"
+                fill="#010101"
+                stroke="#010101"
+                stroke-width="3"
+              />
+            </g>
+            <g id="eightU">
+              <path
+                id="Vector_8"
+                d="M1428.88 467.676H1427.38V466.176V314.62V313.12H1428.88H1540H1541.5V314.62V347.578V349.078H1540H1469.5V371.298H1538.4H1539.9V372.798V405.972V407.472H1538.4H1469.5V431.74H1540H1541.5V433.24V466.176V467.676H1540H1428.88Z"
+                fill="#010101"
+                stroke="#010101"
+                stroke-width="3"
+              />
+            </g>
+            <g id="nineU">
+              <path
+                id="Vector_9"
+                d="M1593.24 313.12H1591.74V314.62V466.176V467.676H1593.24H1698.71H1700.21V466.176V433.24V431.74H1698.71H1633.86V407.472H1697.03H1698.53V405.972V372.798V371.298H1697.03H1633.86V349.078H1698.67H1700.17V347.578V314.62V313.12H1698.67H1593.24Z"
+                fill="#010101"
+                stroke="#010101"
+                stroke-width="3"
+              />
+            </g>
+          </g>
+          <g id="right-arw">
+            <path
+              id="Line 1"
+              d="M1546.12 227.464C1544.17 225.512 1541 225.512 1539.05 227.464L1507.23 259.284C1505.28 261.237 1505.28 264.403 1507.23 266.355C1509.18 268.308 1512.35 268.308 1514.3 266.355L1542.59 238.071L1570.87 266.355C1572.82 268.308 1575.99 268.308 1577.94 266.355C1579.89 264.403 1579.89 261.237 1577.94 259.284L1546.12 227.464ZM1537.59 231L1537.59 549L1547.59 549L1547.59 231L1537.59 231Z"
+              fill="black"
+            />
+          </g>
+          <g id="left-arw">
+            <path
+              id="Line 2"
+              d="M402.55 552.536C404.503 554.488 407.669 554.488 409.621 552.536L441.441 520.716C443.394 518.763 443.394 515.597 441.441 513.645C439.489 511.692 436.323 511.692 434.37 513.645L406.086 541.929L377.802 513.645C375.849 511.692 372.683 511.692 370.73 513.645C368.778 515.597 368.778 518.763 370.73 520.716L402.55 552.536ZM411.086 549L411.086 231L401.086 231L401.086 549L411.086 549Z"
+              fill="black"
+            />
+          </g>
+        </g>
+      </svg>
+    </div>
+
+    <!-- <script>
+      //   const introText = document.querySelectorAll("#introText circle");
+
+      //   for (let i = 0; i < introText.length; i++) {
+      //     console.log(`letter ${i} is ${introText[i].getTotalLength()}`);
+      //   }
+
+      // const introText = document.querySelectorAll("#logo path");
+
+      // for (let i = 0; i < introText.length; i++) {
+      //   console.log(`letter ${i} is ${introText[i].getTotalLength()}`);
+      // }
+    </script> -->
+  </body>
+</html>
